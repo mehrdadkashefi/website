@@ -23,7 +23,7 @@
       <div class="row">
         <div class="col-sm-5">
           <h3>Sequence learning in human</h3>
-          <p> We show that anticipating future target cues is a major confound in traditional sequence learning tasks. To resolve this, we introduce a new paradigm and examine how learning generalizes to different effectors and sequences.</p>
+          <p> We show that anticipating future target cues is a major confound in traditional sequence learning tasks. To resolve this, we introduce a new paradigm and examine how learning generalizes to different effectors and sequences. You can find a <a href="https://www.biorxiv.org/content/10.1101/2024.12.23.630092v1" target="_blank">preprint</a> here.</p>
         </div>
         <div class="col-sm-5">
           <img src="data/sequence_learning.png"  class="img-fluid">
