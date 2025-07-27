@@ -25,7 +25,7 @@
       <div class="row">
         <div class="col-sm-5">
           <img src="data/me.jpeg" alt="My Headshot" class="headshot">
-          <p>I’m a PhD candidate in <a href="https://www.pruszynskilab.com" target="_blank">Pruszynski</a> and <a href="https://diedrichsenlab.org" target="_blank">Diedrichsen</a> labs at Western University. I study neural basis of sequential actions in human, artificial neural networks, and non-human primates.</p>
+          <p>I’m a PhD candidate in <a href="https://www.pruszynskilab.com" target="_blank">Pruszynski</a> and <a href="https://diedrichsenlab.org" target="_blank">Diedrichsen</a> labs at Western University. I study neural basis of sequential actions.</p>
 
           <a class="a-icon" style="color: var(--text-color); margin-right:15px; text-decoration: none" target="_blank" href="mailto:mkashefi@uwo.ca" role="button">
             <i class="fa-regular fa-envelope fa-2xl" aria-hidden="true" ></i>
@@ -34,6 +34,10 @@
           <a class="a-icon" style="color: var(--text-color); margin-right:15px; text-decoration: none" target="_blank" href="https://scholar.google.ca/citations?user=JWIhhAUAAAAJ&hl=en" role="button">
               <i class="fa-brands fa-google-scholar fa-2xl" aria-hidden="true"> </i>
           </a>  
+
+          <a class="a-icon" style="color: var(--text-color); margin-right:15px; text-decoration: none" target="_blank" href="https://bsky.app/profile/mkashefi.bsky.social" role="button">
+            <i class="fa-brands fa-bluesky fa-2xl" aria-hidden="true"></i>
+          </a>
 
           <a class="a-icon" style="color: var(--text-color); margin-right:15px; text-decoration: none" target="_blank" href="https://twitter.com/mehrdadkashefi" role="button">
             <i class="fab fa-x-twitter fa-2xl" aria-hidden="true"></i>

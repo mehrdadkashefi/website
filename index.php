@@ -23,8 +23,9 @@
       <div class="row">
         <div class="col-sm-5">
           <h3>Sequence learning in human</h3>
-          <p> We show that anticipating future target cues is a major confound in traditional sequence learning tasks. To resolve this, we introduce a new paradigm and examine how learning generalizes to different effectors and sequences. You can find a <a href="https://www.biorxiv.org/content/10.1101/2024.12.23.630092v1" target="_blank">preprint</a> here.</p>
-        </div>
+          <p>Learning a sequential movement—like a new piano piece—involves learning both what to do and how to do it. These components are often intertwined in studies. This project introduces a paradigm that disentangles them, revealing how sequence learning unfolds when each is examined separately.<br>
+          &rarr; <a href="https://doi.org/10.1523/JNEUROSCI.0299-25.2025" target="_blank">Paper</a><br>
+          </div>
         <div class="col-sm-5">
           <img src="data/sequence_learning.png"  class="img-fluid">
         </div>
@@ -34,8 +35,9 @@
       <div class="row">
         <div class="col-sm-5">
           <h3>Sequence production in human</h3>
-          <p> 
-          In this work, we investigate how human participants perform sequences of reaching movements when aware of multiple upcoming reaches. See our <a href="https://elifesciences.org/articles/94485" target="_blank">eLife paper</a>  and its associated <a href="https://elifesciences.org/articles/101739" target="_blank">insight article</a> by Raeed Chowdhury.</p>
+          <p> This study explores how humans adjust their planning of ongoing reaching movements when multiple upcoming movements are also known in advance.<br>
+          &rarr; <a href="https://elifesciences.org/articles/94485" target="_blank">Paper</a><br>
+          &rarr; <a href="https://elifesciences.org/articles/101739" target="_blank">Insight article</a> by Raeed Chowdhury.
           </div>
         <div class="col-sm-5">
           <img src="data/seq_production.png"  class="img-fluid">
