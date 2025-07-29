@@ -23,7 +23,7 @@
       <div class="row">
         <div class="col-sm-5">
           <h3>Sequence learning in human</h3>
-          <p>Learning a sequential movement—like a new piano piece—involves learning both what to do and how to do it. These components are often intertwined in studies. This project introduces a paradigm that disentangles them, revealing how sequence learning unfolds when each is examined separately.<br>
+          <p>Learning a sequential movement involves understanding both what to do and how to do it. This project introduces a paradigm that disentangles these often-intertwined components.<br>
           &rarr; <a href="https://doi.org/10.1523/JNEUROSCI.0299-25.2025" target="_blank">Paper</a><br>
           </div>
         <div class="col-sm-5">
