@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
   <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YLMYJ5T1TQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-YLMYJ5T1TQ');
+  </script>
+    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bootstrap.css">
@@ -18,7 +28,20 @@
         </span>
         <!--  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
     </nav>
-    
+    <!--                -->
+     <div class="container">
+      <div class="row">
+        <div class="col-sm-5">
+          <h3>Compositionality of motor cortical dynamics during reaching</h3>
+          <p>This work shows that the motor cortex generates voluntary movement via a three-part compositional neural dynamic: one component tracks arm position, another generates rotational patterns for transitions between positions, and a third tracks overall movement progression.<br>
+          &rarr; <a href="https://www.biorxiv.org/content/10.1101/2025.09.04.674069v1" target="_blank">Preprint</a><br>
+          </div>
+        <div class="col-sm-5">
+          <img src="data/point2point.png"  class="img-fluid">
+        </div>
+      </div>
+    </div>
+    <!--                -->
     <div class="container">
       <div class="row">
         <div class="col-sm-5">
@@ -31,6 +54,7 @@
         </div>
       </div>
     </div>
+    <!--                -->
     <div class="container">
       <div class="row">
         <div class="col-sm-5">
