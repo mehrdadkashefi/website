@@ -34,7 +34,7 @@
       <div class="row">
         <div class="col-sm-5">
           <img src="data/me.jpeg" alt="My Headshot" class="headshot">
-          <p>I’m a PhD candidate in <a href="https://www.pruszynskilab.com" target="_blank">Pruszynski</a> and <a href="https://diedrichsenlab.org" target="_blank">Diedrichsen</a> labs at Western University. I study neural basis of sequential actions.</p>
+          <p>I’m a postdoctoral researcher in <a href="https://www.pruszynskilab.com" target="_blank">Pruszynski</a> and <a href="https://diedrichsenlab.org" target="_blank">Diedrichsen</a> labs at Western University. I study neural basis of movement.</p>
 
           <a class="a-icon" style="color: var(--text-color); margin-right:15px; text-decoration: none" target="_blank" href="mailto:mkashefi@uwo.ca" role="button">
             <i class="fa-regular fa-envelope fa-2xl" aria-hidden="true" ></i>
