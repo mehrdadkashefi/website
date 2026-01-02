@@ -47,16 +47,27 @@
           <a class="a-icon" style="color: var(--text-color); margin-right:15px; text-decoration: none" target="_blank" href="https://bsky.app/profile/mkashefi.bsky.social" role="button">
             <i class="fa-brands fa-bluesky fa-2xl" aria-hidden="true"></i>
           </a>
-
+          <!-- 
           <a class="a-icon" style="color: var(--text-color); margin-right:15px; text-decoration: none" target="_blank" href="https://twitter.com/mehrdadkashefi" role="button">
             <i class="fab fa-x-twitter fa-2xl" aria-hidden="true"></i>
           </a>
+           -->
+
           <a class="a-icon" style="text-decoration: none" target="_blank" href="https://github.com/mehrdadkashefi">
             <i class="fab fa-github fa-2xl fa" style="color: var(--text-color); margin-right: 15px" aria-hidden="true"></i>
           </a>
+
           <a class="a-icon" style="color: var(--text-color); text-decoration: none" target="_blank" href="https://www.linkedin.com/in/mehrdad-kashefi-16937a53/">
-              <i class="fab fa-linkedin fa-2xl fa"  aria-hidden="true"></i>
+              <i class="fab fa-linkedin fa-2xl fa"  style="color: var(--text-color); margin-right: 15px" aria-hidden="true"></i>
           </a> 
+
+          <a class="a-icon" style="color: var(--text-color); text-decoration: none" target="_blank" href="https://letterboxd.com/mkashefi/">
+              <i class="fa-brands fa-letterboxd fa-2xl fa" style="color: var(--text-color); margin-right: 15px" aria-hidden="true"></i>
+          </a>
+
+           <a class="a-icon" style="text-decoration: none" target="_blank" href="https://www.goodreads.com/user/show/101901250-mehrdad-kashefi">
+            <i class="fab fa-goodreads fa-2xl fa" style="color: var(--text-color)" aria-hidden="true"></i>
+          </a>
           
         </div>
         <div class="col-sm-5">
