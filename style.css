@@ -1,0 +1,392 @@
+/* ---------- Tokens ---------- */
+/* Colours are drawn from Friedrich's "Wanderer above the Sea of Fog":
+   fog for the page, the wanderer's coat for ink, the distant ridges for
+   secondary text, and his copper hair for the accent. */
+:root {
+  --bg: #e7e9ef;
+  --text: #1a181d;
+  --muted: #5b6672;
+  --rule: #c7c9d3;
+  --underline: #9ea2aa;
+  --accent: #96521f;
+
+  --serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --measure: 44rem;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --bg: #1a181d;
+  --text: #cfd1db;
+  --muted: #8e98a5;
+  --rule: #302f37;
+  --underline: #5a5e68;
+  --accent: #dba56c;
+  color-scheme: dark;
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 1.1875rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--underline);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+a:hover {
+  color: var(--accent);
+  text-decoration-color: currentColor;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.wrap {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  padding: 2.5rem 0 1.25rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.site-name {
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-family: var(--sans);
+  font-size: 0.875rem;
+}
+
+.site-nav a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  color: var(--text);
+}
+
+.site-nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.45em;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  margin: -0.5rem -0.5rem -0.5rem 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  align-self: center;
+}
+
+.theme-toggle:hover {
+  color: var(--text);
+}
+
+.theme-toggle svg {
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+.theme-toggle .icon-sun,
+:root[data-theme="dark"] .theme-toggle .icon-moon {
+  display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-sun {
+  display: block;
+}
+
+/* ---------- Projects ---------- */
+.project {
+  padding: 3.25rem 0 3.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+.project:first-child {
+  border-top: 0;
+}
+
+.project h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+.project p {
+  margin: 0;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.5rem;
+  margin: 1.1rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+}
+
+.links a {
+  text-decoration: none;
+  border-bottom: 1px solid var(--underline);
+  padding-bottom: 1px;
+}
+
+.links a::after {
+  content: "\2197";
+  display: inline-block;
+  margin-left: 0.3em;
+  color: var(--accent);
+  transition: transform 0.15s ease;
+}
+
+.links a:hover {
+  border-bottom-color: currentColor;
+}
+
+.links a:hover::after {
+  transform: translate(2px, -2px);
+}
+
+.links .note {
+  color: var(--muted);
+}
+
+.plate {
+  margin: 2.25rem 0 0;
+}
+
+/* The figures are transparent with black linework, so on the dark theme
+   flip their lightness (the hue rotation keeps colours roughly as drawn). */
+:root[data-theme="dark"] .plate img {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* ---------- About ---------- */
+.about {
+  padding: 4rem 0 3.5rem;
+}
+
+.intro {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.headshot {
+  flex: none;
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.intro p {
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+.icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.6rem;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 1.5rem;
+}
+
+.icons a {
+  display: block;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.icons a:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.icons li {
+  position: relative;
+}
+
+.copied {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 0.35rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  background: var(--text);
+  color: var(--bg);
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.copied.is-visible {
+  opacity: 1;
+}
+
+.painting {
+  margin: 3.5rem 0 0;
+}
+
+.painting img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.painting {
+  position: relative;
+}
+
+.painting.is-magnifying img {
+  cursor: none;
+}
+
+.lens {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 11rem;
+  height: 11rem;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  background-color: var(--bg);
+  background-repeat: no-repeat;
+  box-shadow: 0 0 0 1px rgba(26, 24, 29, 0.35), 0 10px 30px rgba(26, 24, 29, 0.35);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  will-change: transform;
+}
+
+.painting.is-magnifying .lens {
+  opacity: 1;
+}
+
+.painting figcaption {
+  margin-top: 0.75rem;
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  padding: 1.5rem 0 3rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 34rem) {
+  body {
+    font-size: 1.0625rem;
+  }
+
+  .site-header {
+    padding-top: 1.75rem;
+  }
+
+  .site-nav {
+    gap: 1.25rem;
+  }
+
+  .project h2 {
+    font-size: 1.5rem;
+  }
+
+  .intro {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .intro p {
+    font-size: 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}

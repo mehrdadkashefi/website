@@ -1,31 +1,73 @@
 // script.js
 
-// Toggle theme between light and dark
+// Toggle theme between light and dark.
+// The initial theme is applied by a small inline script in each page's <head>
+// so the page never flashes the wrong colours.
 function toggleTheme() {
-    const body = document.body;
-    const themeIcon = document.getElementById("theme-icon");
+    const root = document.documentElement;
+    const next = root.dataset.theme === "dark" ? "light" : "dark";
 
-    // Toggle the "dark-theme" class on the body
-    body.classList.toggle("dark-theme");
-
-    // Update the icon based on the theme
-    if (body.classList.contains("dark-theme")) {
-        themeIcon.src = "icons/sun.svg"; // Change to sun icon for light mode
-        localStorage.setItem("theme", "dark");
-    } else {
-        themeIcon.src = "icons/moon.svg"; // Change to moon icon for dark mode
-        localStorage.setItem("theme", "light");
-    }
+    root.dataset.theme = next;
+    localStorage.setItem("theme", next);
 }
 
-// Check for saved theme preference in local storage
-window.onload = function () {
-    const savedTheme = localStorage.getItem("theme");
+// Magnifying glass over the painting on the About page (mouse / pen only,
+// so it never gets in the way of scrolling on touch screens).
+(function () {
+    const figure = document.querySelector(".painting");
+    if (!figure) return;
 
-    if (savedTheme === "dark") {
-        document.body.classList.add("dark-theme");
-        document.getElementById("theme-icon").src = "icons/sun.svg"; // Set to sun icon
-    } else {
-        document.getElementById("theme-icon").src = "icons/moon.svg"; // Set to moon icon
+    const img = figure.querySelector("img");
+    const zoom = 2.5;
+
+    const lens = document.createElement("div");
+    lens.className = "lens";
+    lens.setAttribute("aria-hidden", "true");
+    lens.style.backgroundImage = `url("${img.currentSrc || img.src}")`;
+    figure.appendChild(lens);
+
+    function move(event) {
+        if (event.pointerType === "touch") return;
+
+        const rect = img.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        const radius = lens.offsetWidth / 2;
+
+        lens.style.transform = `translate(${x - radius}px, ${y - radius}px)`;
+        lens.style.backgroundSize = `${rect.width * zoom}px ${rect.height * zoom}px`;
+        lens.style.backgroundPosition = `${radius - x * zoom}px ${radius - y * zoom}px`;
+        figure.classList.add("is-magnifying");
     }
-};
+
+    img.addEventListener("pointerenter", move);
+    img.addEventListener("pointermove", move);
+    img.addEventListener("pointerleave", function () {
+        figure.classList.remove("is-magnifying");
+    });
+})();
+
+// Email icon: besides opening the visitor's mail app, copy the address and
+// say so, since mailto links do nothing when no mail app is set up.
+(function () {
+    const link = document.querySelector('.icons a[href^="mailto:"]');
+    if (!link || !navigator.clipboard) return;
+
+    const address = link.getAttribute("href").replace("mailto:", "");
+    const note = document.createElement("span");
+    note.className = "copied";
+    note.setAttribute("role", "status");
+    link.parentNode.appendChild(note);
+
+    let timer;
+    link.addEventListener("click", function () {
+        navigator.clipboard.writeText(address).then(function () {
+            note.textContent = address + " copied";
+            note.classList.add("is-visible");
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                note.classList.remove("is-visible");
+            }, 2500);
+        }).catch(function () {});
+    });
+})();

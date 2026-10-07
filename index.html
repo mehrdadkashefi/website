@@ -1,75 +1,87 @@
 <!doctype html>
 <html lang="en">
   <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YLMYJ5T1TQ"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YLMYJ5T1TQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-    gtag('config', 'G-YLMYJ5T1TQ');
-  </script>
+      gtag('config', 'G-YLMYJ5T1TQ');
+    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="bootstrap.css">
-    <title>Home</title>
-   
+    <meta name="description" content="Mehrdad Kashefi studies the neural basis of movement.">
+    <title>Mehrdad Kashefi</title>
+    <script>
+      // Apply the saved (or system) theme before first paint
+      (function () {
+        var saved = localStorage.getItem("theme");
+        var dark = saved ? saved === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.theme = dark ? "dark" : "light";
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <nav class="nav">
-        <a class="nav-link active" aria-current="index.html" href="index.html">Projects</a>
-        <a class="nav-link" href="about.html">About</a>
-        <!-- <a class="nav-link" href="blog.html">Blog</a>-->
-        <a class="nav-link" href="data/CV.pdf" target="_blank">CV</a>
-        <span id="theme-toggle" onclick="toggleTheme()">
-            <img src="icons/moon.svg" alt="Toggle Theme" id="theme-icon">
-        </span>
-        <!--  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
-    </nav>
-    <!--                -->
-     <div class="container">
-      <div class="row">
-        <div class="col-sm-5">
-          <h3>Compositionality of motor cortical dynamics during reaching</h3>
-          <p>This work shows that the motor cortex generates voluntary movement via a three-part compositional neural dynamic: one component tracks arm position, another generates rotational patterns for transitions between positions, and a third tracks overall movement progression.<br>
-          &rarr; <a href="https://www.biorxiv.org/content/10.1101/2025.09.04.674069v1" target="_blank">Preprint</a><br>
-          </div>
-        <div class="col-sm-5">
-          <img src="data/point2point.png"  class="img-fluid">
-        </div>
-      </div>
-    </div>
-    <!--                -->
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-5">
-          <h3>Sequence learning in human</h3>
-          <p>Learning a sequential movement involves understanding both what to do and how to do it. This project introduces a paradigm that disentangles these often-intertwined components.<br>
-          &rarr; <a href="https://doi.org/10.1523/JNEUROSCI.0299-25.2025" target="_blank">Paper</a><br>
-          </div>
-        <div class="col-sm-5">
-          <img src="data/sequence_learning.png"  class="img-fluid">
-        </div>
-      </div>
-    </div>
-    <!--                -->
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-5">
-          <h3>Sequence production in human</h3>
-          <p> This study explores how humans adjust their planning of ongoing reaching movements when multiple upcoming movements are also known in advance.<br>
-          &rarr; <a href="https://elifesciences.org/articles/94485" target="_blank">Paper</a><br>
-          &rarr; <a href="https://elifesciences.org/articles/101739" target="_blank">Insight article</a> by Raeed Chowdhury.
-          </div>
-        <div class="col-sm-5">
-          <img src="data/seq_production.png"  class="img-fluid">
-        </div>
-      </div>
+    <div class="wrap">
+      <header class="site-header">
+        <a class="site-name" href="index.html">Mehrdad Kashefi</a>
+        <nav class="site-nav" aria-label="Main">
+          <a href="index.html" aria-current="page">Projects</a>
+          <a href="about.html">About</a>
+          <!-- <a href="blog.html">Blog</a> -->
+          <a href="data/CV.pdf" target="_blank">CV</a>
+          <button class="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Toggle theme">
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg>
+          </button>
+        </nav>
+      </header>
+
+      <main>
+        <article class="project">
+          <h2>Compositionality of motor cortical dynamics during reaching</h2>
+          <p>This work shows that the motor cortex generates voluntary movement via a three-part compositional neural dynamic: one component tracks arm position, another generates rotational patterns for transitions between positions, and a third tracks overall movement progression.</p>
+          <ul class="links">
+            <li><a href="https://www.biorxiv.org/content/10.1101/2025.09.04.674069v1" target="_blank">Preprint on bioRxiv</a></li>
+          </ul>
+          <figure class="plate">
+            <img src="data/point2point.png" width="6762" height="2182" alt="A reach shown in the arm's workspace and as trajectories in M1-like and PMd-like neural state spaces.">
+          </figure>
+        </article>
+
+        <article class="project">
+          <h2>Sequence learning in human</h2>
+          <p>Learning a sequential movement involves understanding both what to do and how to do it. This project introduces a paradigm that disentangles these often-intertwined components.</p>
+          <ul class="links">
+            <li><a href="https://doi.org/10.1523/JNEUROSCI.0299-25.2025" target="_blank">Paper in Journal of Neuroscience</a></li>
+          </ul>
+          <figure class="plate">
+            <img src="data/sequence_learning.png" width="1976" height="778" alt="Schematic of selection and motor stages for random versus practiced sequences.">
+          </figure>
+        </article>
+
+        <article class="project">
+          <h2>Sequence production in human</h2>
+          <p>This study explores how humans adjust their planning of ongoing reaching movements when multiple upcoming movements are also known in advance.</p>
+          <ul class="links">
+            <li><a href="https://elifesciences.org/articles/94485" target="_blank">Paper in eLife</a></li>
+            <li><a href="https://elifesciences.org/articles/101739" target="_blank">Insight article</a> <span class="note">by Raeed Chowdhury</span></li>
+          </ul>
+          <figure class="plate">
+            <img src="data/seq_production.png" width="1876" height="890" alt="Timelines of planning and execution for reaches with one, two, or three targets known in advance.">
+          </figure>
+        </article>
+      </main>
+
+      <footer class="site-footer">Mehrdad Kashefi 2026</footer>
     </div>
 
-    
-  <script src="script.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
-
