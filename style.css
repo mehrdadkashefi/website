@@ -13,7 +13,7 @@
   --serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
-  --measure: 44rem;
+  --measure: 52rem;
   color-scheme: light;
 }
 
@@ -43,8 +43,8 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--serif);
-  font-size: 1.1875rem;
-  line-height: 1.6;
+  font-size: 1.0625rem;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   transition: background-color 0.25s ease, color 0.25s ease;
@@ -161,7 +161,11 @@ a:hover {
 
 /* ---------- Projects ---------- */
 .project {
-  padding: 3.25rem 0 3.5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: 1.5rem 2.25rem;
+  padding: 2.25rem 0;
   border-top: 1px solid var(--rule);
 }
 
@@ -170,10 +174,10 @@ a:hover {
 }
 
 .project h2 {
-  margin: 0 0 0.75rem;
-  font-size: 1.75rem;
+  margin: 0 0 0.5rem;
+  font-size: 1.375rem;
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 1.25;
   letter-spacing: -0.015em;
   text-wrap: balance;
 }
@@ -186,7 +190,7 @@ a:hover {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem 1.5rem;
-  margin: 1.1rem 0 0;
+  margin: 0.85rem 0 0;
   padding: 0;
   list-style: none;
   font-family: var(--sans);
@@ -220,7 +224,7 @@ a:hover {
 }
 
 .plate {
-  margin: 2.25rem 0 0;
+  margin: 0;
 }
 
 /* The figures are transparent with black linework, so on the dark theme
@@ -250,9 +254,6 @@ a:hover {
 
 .intro p {
   margin: 0;
-  font-size: 1.4rem;
-  line-height: 1.4;
-  letter-spacing: -0.01em;
 }
 
 .icons {
@@ -357,11 +358,14 @@ a:hover {
 }
 
 /* ---------- Small screens ---------- */
-@media (max-width: 34rem) {
-  body {
-    font-size: 1.0625rem;
+@media (max-width: 42rem) {
+  .project {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 2rem 0;
   }
+}
 
+@media (max-width: 34rem) {
   .site-header {
     padding-top: 1.75rem;
   }
@@ -370,18 +374,11 @@ a:hover {
     gap: 1.25rem;
   }
 
-  .project h2 {
-    font-size: 1.5rem;
-  }
 
   .intro {
     flex-direction: column;
     align-items: flex-start;
     gap: 1.5rem;
-  }
-
-  .intro p {
-    font-size: 1.25rem;
   }
 }
 
