@@ -1,15 +1,27 @@
 // script.js
 
-// Toggle theme between light and dark.
-// The initial theme is applied by a small inline script in each page's <head>
-// so the page never flashes the wrong colours.
+// The theme follows the system light/dark setting (applied by a small inline
+// script in each page's <head> so the page never flashes the wrong colours).
+// The toggle overrides it for the current browsing session only.
 function toggleTheme() {
     const root = document.documentElement;
     const next = root.dataset.theme === "dark" ? "light" : "dark";
 
     root.dataset.theme = next;
-    localStorage.setItem("theme", next);
+    sessionStorage.setItem("theme", next);
 }
+
+// When the system setting changes while the page is open, follow it again.
+(function () {
+    const system = window.matchMedia("(prefers-color-scheme: dark)");
+
+    localStorage.removeItem("theme"); // older versions saved the choice permanently
+
+    system.addEventListener("change", function (event) {
+        sessionStorage.removeItem("theme");
+        document.documentElement.dataset.theme = event.matches ? "dark" : "light";
+    });
+})();
 
 // Magnifying glass over the painting on the home (About) page (mouse / pen only,
 // so it never gets in the way of scrolling on touch screens).

@@ -14,17 +14,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Blog &middot; Mehrdad Kashefi</title>
     <script>
-      // Apply the saved (or system) theme before first paint
+      // Follow the system light/dark setting, applied before first paint.
+      // A manual toggle only lasts for the current browsing session.
       (function () {
-        var saved = localStorage.getItem("theme");
-        var dark = saved ? saved === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+        var chosen = sessionStorage.getItem("theme");
+        var dark = chosen ? chosen === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
         document.documentElement.dataset.theme = dark ? "dark" : "light";
       })();
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
-    <link rel="stylesheet" href="style.css?v=8">
+    <link rel="stylesheet" href="style.css?v=9">
   </head>
   <body>
     <div class="wrap">
@@ -46,6 +47,6 @@
       </main>
     </div>
 
-    <script src="script.js?v=8"></script>
+    <script src="script.js?v=9"></script>
   </body>
 </html>
