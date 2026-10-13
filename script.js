@@ -48,6 +48,46 @@ function toggleTheme() {
     figure.appendChild(quote);
     let dwell = null;
 
+    // Open up room for the quote, glide down to the bottom of the page so that
+    // room is in view, and only then let the text fade in. The scroll target is
+    // re-read every frame because the page grows as the room opens.
+    function reveal() {
+        if (quote.classList.contains("is-open")) return;
+        quote.classList.add("is-open");
+
+        const root = document.documentElement;
+        const bottom = function () {
+            return root.scrollHeight - window.innerHeight;
+        };
+
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            setTimeout(function () {
+                window.scrollTo(0, bottom());
+                quote.classList.add("is-revealed");
+            }, 700);
+            return;
+        }
+
+        const from = window.scrollY;
+        const duration = 1400;
+        let start = null;
+
+        function step(now) {
+            if (start === null) start = now;
+            const t = Math.min((now - start) / duration, 1);
+            const eased = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+
+            window.scrollTo(0, from + (bottom() - from) * eased);
+            if (t < 1) {
+                requestAnimationFrame(step);
+            } else {
+                quote.classList.add("is-revealed");
+            }
+        }
+
+        requestAnimationFrame(step);
+    }
+
     function stopDwell() {
         clearTimeout(dwell);
         dwell = null;
@@ -74,9 +114,7 @@ function toggleTheme() {
         if (!onHead) {
             stopDwell();
         } else if (!dwell) {
-            dwell = setTimeout(function () {
-                quote.classList.add("is-revealed");
-            }, 1000);
+            dwell = setTimeout(reveal, 1000);
         }
     }
 

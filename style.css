@@ -351,12 +351,16 @@ a:hover {
   text-align: center;
   text-wrap: balance;
   opacity: 0;
-  transition: opacity 1.2s ease, max-height 0.6s ease, margin 0.6s ease;
+  transition: opacity 3s ease, max-height 0.6s ease, margin 0.6s ease;
+}
+
+/* First the space opens (and the page scrolls to it), then the text fades in */
+.revelation.is-open {
+  max-height: 8rem;
+  margin-top: 2rem;
 }
 
 .revelation.is-revealed {
-  max-height: 8rem;
-  margin-top: 2rem;
   opacity: 1;
 }
 
