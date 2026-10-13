@@ -1,14 +1,14 @@
 /* ---------- Tokens ---------- */
-/* Colours are drawn from Friedrich's "Wanderer above the Sea of Fog":
-   fog for the page, the wanderer's coat for ink, the distant ridges for
-   secondary text, and his copper hair for the accent. */
+/* Colours are drawn from Friedrich's "Two Men by the Sea": the pale glow
+   of the sky for the page, the dark shore for ink, the dusky clouds for
+   secondary text, and the orange of the horizon for the accent. */
 :root {
-  --bg: #e7e9ef;
-  --text: #1a181d;
-  --muted: #5b6672;
-  --rule: #c7c9d3;
-  --underline: #9ea2aa;
-  --accent: #96521f;
+  --bg: #f1e6cf;
+  --text: #221e17;
+  --muted: #6b5c45;
+  --rule: #dccba6;
+  --underline: #b6a177;
+  --accent: #a8561b;
 
   --serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -18,12 +18,12 @@
 }
 
 :root[data-theme="dark"] {
-  --bg: #1a181d;
-  --text: #cfd1db;
-  --muted: #8e98a5;
-  --rule: #302f37;
-  --underline: #5a5e68;
-  --accent: #dba56c;
+  --bg: #1a1611;
+  --text: #e5d3ac;
+  --muted: #a08f70;
+  --rule: #332c21;
+  --underline: #615340;
+  --accent: #e2a55f;
   color-scheme: dark;
 }
 
@@ -330,7 +330,7 @@ a:hover {
   border-radius: 50%;
   background-color: var(--bg);
   background-repeat: no-repeat;
-  box-shadow: 0 0 0 1px rgba(26, 24, 29, 0.35), 0 10px 30px rgba(26, 24, 29, 0.35);
+  box-shadow: 0 0 0 1px rgba(26, 22, 17, 0.4), 0 10px 30px rgba(26, 22, 17, 0.4);
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.15s ease;
@@ -338,6 +338,25 @@ a:hover {
 }
 
 .painting.is-magnifying .lens {
+  opacity: 1;
+}
+
+.revelation {
+  max-height: 0;
+  margin: 0;
+  overflow: hidden;
+  font-size: 1.375rem;
+  font-style: italic;
+  line-height: 1.35;
+  text-align: center;
+  text-wrap: balance;
+  opacity: 0;
+  transition: opacity 1.2s ease, max-height 0.6s ease, margin 0.6s ease;
+}
+
+.revelation.is-revealed {
+  max-height: 8rem;
+  margin-top: 2rem;
   opacity: 1;
 }
 
