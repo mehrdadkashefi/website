@@ -78,6 +78,7 @@ function toggleTheme() {
             const eased = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
 
             window.scrollTo(0, from + (bottom() - from) * eased);
+            place();
             if (t < 1) {
                 requestAnimationFrame(step);
             } else {
@@ -93,12 +94,26 @@ function toggleTheme() {
         dwell = null;
     }
 
-    function move(event) {
-        if (event.pointerType === "touch") return;
+    // Where the pointer last was on screen. Kept so the lens can be re-placed
+    // when the page scrolls underneath a pointer that is not moving.
+    let pointer = null;
+
+    function hide() {
+        figure.classList.remove("is-magnifying");
+        stopDwell();
+    }
+
+    function place() {
+        if (!pointer) return;
 
         const rect = img.getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
+        const x = pointer.x - rect.left;
+        const y = pointer.y - rect.top;
+        if (x < 0 || y < 0 || x > rect.width || y > rect.height) {
+            hide();
+            return;
+        }
+
         const radius = lens.offsetWidth / 2;
 
         lens.style.transform = `translate(${x - radius}px, ${y - radius}px)`;
@@ -118,12 +133,20 @@ function toggleTheme() {
         }
     }
 
+    function move(event) {
+        if (event.pointerType === "touch") return;
+
+        pointer = { x: event.clientX, y: event.clientY };
+        place();
+    }
+
     img.addEventListener("pointerenter", move);
     img.addEventListener("pointermove", move);
     img.addEventListener("pointerleave", function () {
-        figure.classList.remove("is-magnifying");
-        stopDwell();
+        pointer = null;
+        hide();
     });
+    window.addEventListener("scroll", place, { passive: true });
 })();
 
 // Email icon: besides opening the visitor's mail app, copy the address and
